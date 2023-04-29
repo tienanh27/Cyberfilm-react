@@ -5,10 +5,11 @@ import danhSachGheData from './Data/danhSachGhe.json'
 import HangGhe from './HangGhe.js'
 export default class BaiTapBookingTicket extends Component {
 
+    // Render hàng ghế 
     renderHangGhe = () => {
-        return danhSachGheData.map((hangGhe,index) => {
+        return danhSachGheData.map((hangGhe, index) => {
             return <div key={index}>
-                <HangGhe hangGhe={hangGhe} />
+                <HangGhe hangGhe={hangGhe} soHangGhe={index} />
 
             </div>
         })
@@ -25,29 +26,29 @@ export default class BaiTapBookingTicket extends Component {
                         {/* Chia thông tin làm làm 2 bên  */}
                         <div className="row">
 
-                            <div className="col-8">
-                                <div className=" text-light display-4 text-center" >ĐẶT VÉ XEM PHIM</div>
+                            <div className="col-8  text-center">
+                                <div className=" text-light display-4" >ĐẶT VÉ XEM PHIM</div>
 
                                 {/* Thêm text màn hình  */}
-                                <div className="mt-3 text-light text-center" style={{ fontSize: '25px' }}>Màn hình</div>
+                                <div className="mt-3 text-light" style={{ fontSize: '25px' }}>Màn hình</div>
 
                                 {/* Cho lồng vào thẻ div để lấy effect (do không phải text nên ko center được) */}
                                 {/* flexDirection: 'row': xếp item theo hàng ngang  */}
-                                <div className='mt-2' style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center' }} >
+                                <div className='mt-2' style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }} >
                                     {/* Thêm màn hình  */}
                                     <div className="screen" ></div>
 
+                                    {/* Render ghế theo từng hàng  */}
+                                    {this.renderHangGhe()}
                                 </div>
-                            
-                                {/* Render ghế theo từng hàng  */}
-                                {this.renderHangGhe()}
                             </div>
 
                             {/* Layout bên phải: danh sách ghế bạn chọn  */}
                             <div className="col-4">
-                                <div style={{fontSize:'27px'}} className="text-warning mt-2" >DANH SÁCH GHẾ BẠN CHỌN</div>
+
+                                <div style={{ fontSize: '27px' }} className="text-warning mt-2" >DANH SÁCH GHẾ BẠN CHỌN</div>
                                 <ThongTinDatGhe />
-                            
+
                             </div>
                         </div>
                     </div>
