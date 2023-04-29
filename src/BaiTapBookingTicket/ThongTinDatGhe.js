@@ -47,7 +47,7 @@ class ThongTinDatGhe extends Component {
 
                         </tbody>
 
-                        {/* Tính tổng tiền  */}
+                        {/* Tính tổng tiền cho giá  */}
                         <tfoot>
                             <tr className='text-warning'>
                                 <td>Tổng Tiền</td>
